@@ -1,0 +1,18 @@
+.container{
+    border:solid 1px black;
+    padding: 10px;
+    width:55%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button{
+    text-align: center;
+}
