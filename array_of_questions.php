@@ -6,5 +6,4 @@ $questions = [
     ['question' => "What is CSS?", 'gr1' => 7],
     ['question' => "What is JAVA?", 'gr1' => 7]
 ];
-
 ?>

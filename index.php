@@ -1,3 +1,11 @@
+<?php
+include "array_of_questions.php";
+//print_r(array_keys($questions));
+//$questions_index = array_keys($questions);
+//shuffle($questions_index);
+shuffle($questions)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,28 +17,33 @@
 <body>
     <div class="container">
         <div class="row">
-            <div><h3>Questions</h3></div>
+            <div class="question"><h3>Questions</h3></div>
             <div><h3>Answers</h3></div>
             <div><h3>Grade</h3></div>
         </div>
-        <div class="row">
-            <div>What is HTML?</div>
-            <div><input type="text" placeholder="answer"></div>
-            <div>7</div>
-        </div>
-        <div class="row">
-            <div>What is HTML?</div>
-            <div><input type="text" placeholder="answer"></div>
-            <div>7</div>
-        </div>
-        <div class="row">
-            <div>What is HTML?</div>
-            <div><input type="text" placeholder="answer"></div>
-            <div>7</div>
-        </div>
-        <div class="button">
-            <button>Send</button>
-        </div>
+        <form action="grade.php" method="post">
+            <?php 
+            foreach ($questions as $item): 
+            ?>
+
+            <div class="row">
+                <div class="question">
+                    <?=$item['question']?>
+                    <input type="hidden" name="question[]" value="<?=$item['question']?>">
+            </div>
+                    <div><input type="text" placeholder="answer" name="answer[]"></div>
+                    <div><?=$item['gr1']; ?></div>
+                </div>
+
+            <?php endforeach; ?>
+
+            <div class="button">
+                <label for="">Student:</label>
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Surname" name="surname">
+                <button>Send</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
